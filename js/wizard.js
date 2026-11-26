@@ -245,6 +245,8 @@ const Wizard = (() => {
     if (moved) {
       b.scrollTop = 0;
       setTimeout(() => {
+        const a = document.activeElement;
+        if (a && b.contains(a) && /INPUT|TEXTAREA|SELECT/.test(a.tagName)) return; // já está digitando
         const f = done ? $('ok-t') : W.step === 'data' ? (!W.f.name ? $('f-name') : !phoneOk(W.f.phone) ? $('f-phone') : $('f-name')) : b.querySelector('[aria-pressed=true]') || b.querySelector('.opt,.dy:not([aria-disabled]),.slot') || $('wz-t');
         if (f) f.focus({ preventScroll: W.step !== 'data' });
       }, 60);

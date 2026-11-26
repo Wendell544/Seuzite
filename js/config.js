@@ -88,11 +88,6 @@ const dBR = (d) => (d ? d.slice(8, 10) + '/' + d.slice(5, 7) + '/' + d.slice(0, 
 const dLong = (d) => WD[Slots.weekday(d)] + ', ' + +d.slice(8, 10) + ' de ' + MO[+d.slice(5, 7) - 1];
 const dShort = (d) => WD3[Slots.weekday(d)] + ', ' + +d.slice(8, 10) + ' ' + MO[+d.slice(5, 7) - 1].slice(0, 3);
 const hm = (t) => String(t || '').slice(0, 5);
-/* "hoje", "amanhã" ou a data por extenso, no relógio do negócio. */
-const dRel = (d) => {
-  const t = Slots.today({ set: DB.set }).d;
-  return d === t ? 'hoje' : d === Slots.addDays(t, 1) ? 'amanhã' : dLong(d);
-};
 /* Texto com *destaque* → <em>destaque</em> (já escapado). */
 const hl = (s) => esc(s).replace(/\*([^*]+)\*/g, '<em>$1</em>');
 const plural = (n, a, b) => n + ' ' + (n === 1 ? a : b);
@@ -154,6 +149,9 @@ const Layer = {
     e.classList.remove('hid');
     this.sync();
     setTimeout(() => {
+      // Não rouba o foco de quem já está usando o diálogo (digitação rápida, preenchimento automático).
+      const a = document.activeElement;
+      if (a && a !== e && e.contains(a)) return;
       const f = typeof focus === 'string' ? $(focus) : focus;
       (f || e).focus({ preventScroll: true });
     }, 40);

@@ -236,6 +236,7 @@ const Admin = (() => {
     const hide = () => tip.classList.add('hid');
     c.querySelectorAll('.hit').forEach((h) => {
       h.addEventListener('pointerenter', () => showTip(h));
+      h.addEventListener('pointermove', () => (tip.classList.contains('hid') || tip.dataset.i !== h.dataset.i) && showTip(h));
       h.addEventListener('focus', () => showTip(h));
       h.addEventListener('pointerleave', hide);
       h.addEventListener('blur', hide);

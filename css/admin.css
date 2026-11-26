@@ -61,7 +61,8 @@ button.kpi:hover{border-color:var(--bd2);box-shadow:var(--sh-sm)}
 .ch .ax{fill:var(--mt);font:500 11px var(--fb);font-variant-numeric:tabular-nums}
 .ch .ax.t{fill:var(--tx);font-weight:600}
 .ch .vl{fill:var(--tx);font:600 12px var(--fb);font-variant-numeric:tabular-nums}
-.ch .bar{fill:var(--chart);transition:fill var(--t-fast)}
+.ch .bar{fill:var(--chart);transition:fill var(--t-fast);pointer-events:none} /* o alvo do hover é o .hit (a faixa inteira) */
+.ch .vl,.ch .ax{pointer-events:none}
 .ch .hit{fill:transparent;cursor:default;outline:none}
 .ch .hit:hover+.bar,.ch .hit:focus-visible+.bar{fill:var(--chart-h)}
 .ch .hit:focus-visible{stroke:var(--gdt);stroke-width:2}
@@ -191,4 +192,6 @@ label.b:focus-within{outline:2px solid var(--gdt);outline-offset:2px}
 .ad-in{padding-top:var(--s5)}
 .it{grid-template-columns:64px minmax(0,1fr);gap:var(--s2) var(--s3)}
 .it-a{grid-column:1/-1;justify-content:flex-start}
-.h7{grid-template-columns:minmax(0,1fr)}}
+.h7{grid-template-columns:minmax(0,1fr)}
+.h7-t .in{flex:1 1 104px;width:0;min-width:0}
+.h7-b{flex:1 1 100%;min-width:0}}
