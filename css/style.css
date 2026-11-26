@@ -112,7 +112,9 @@ i[data-i]{display:inline-flex;font-style:normal}
 .in[aria-invalid=true]:focus{box-shadow:0 0 0 3px var(--erbg)}
 textarea.in{min-height:6rem;padding:var(--s3) 14px;line-height:1.55;resize:vertical}
 select.in{padding-right:40px;cursor:pointer;background:var(--sf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23948b7e' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center/14px}
-.lb{display:flex;flex-direction:column;gap:6px;font-size:var(--fs-sm);font-weight:500}
+/* Rótulo em grid: texto e dica na mesma linha, campo embaixo ocupando a largura toda */
+.lb{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;gap:6px;font-size:var(--fs-sm);font-weight:500}
+.lb>.in{grid-column:1/-1}
 .lb .in{font-weight:400}
 .lbo{color:var(--mt);font-weight:400}
 .ferr{color:var(--er);font-size:var(--fs-xs);font-weight:500}

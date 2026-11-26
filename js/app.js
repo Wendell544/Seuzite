@@ -25,7 +25,7 @@ const closeTop = () => {
   if (t === 'cf') return ask.esc && ask.esc();
   if (t === 'wz') return Wizard.close();
   if (t === 'lg') return ACT.lclose();
-  if (t === 'adm' && window.Admin) return Admin.esc();
+  if ((t === 'adm' || t === 'am') && typeof Admin !== 'undefined') return Admin.esc();
 };
 
 document.addEventListener('keydown', (e) => {
