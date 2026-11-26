@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="is-loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<title>Agendamento online</title>
+<meta name="description" content="Escolha o serviço, o dia e o horário em poucos toques. Agendamento online com confirmação pelo WhatsApp.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Agendamento online">
+<meta property="og:description" content="Escolha o serviço, o dia e o horário em poucos toques. Confirmação pelo WhatsApp.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%23171614'/%3E%3Crect%20x='8.5'%20y='9.5'%20width='15'%20height='13.5'%20rx='2'%20fill='none'%20stroke='%23cda353'%20stroke-width='1.8'/%3E%3Cpath%20d='M8.5%2013.5h15M12.5%207.5v3.5M19.5%207.5v3.5'%20stroke='%23cda353'%20stroke-width='1.8'%20stroke-linecap='round'/%3E%3C/svg%3E">
+<!--
+  Tema sem flash (anti-FOUC): resolve a preferência salva ou a do sistema ANTES do CSS
+  e grava sempre data-theme="light|dark" no <html>. A barra do navegador acompanha.
+-->
+<script>
+(function () {
+  try {
+    var d = document.documentElement, t;
+    try { t = (JSON.parse(localStorage.getItem('agenda_prefs') || '{}') || {}).theme; } catch (e) {}
+    if (t !== 'dark' && t !== 'light') t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    d.setAttribute('data-theme', t);
+    var c = t === 'dark' ? '#121110' : '#fbfaf7', m = document.querySelectorAll('meta[name="theme-color"]');
+    for (var i = 0; i < m.length; i++) m[i].setAttribute('content', c);
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap">
+<link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+<a class="skip" href="#servicos">Ir para os serviços</a>
+
+<header class="hd" id="hd">
+  <div class="w hd-in">
+    <a href="#top" class="logo" id="logo" data-dyn><span>Agendamento</span></a>
+    <nav class="nav" aria-label="Seções do site">
+      <a href="#servicos">Serviços</a>
+      <a href="#horarios">Horários</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="hd-a">
+      <button class="q" data-a="theme" aria-label="Alternar tema claro ou escuro"><i class="i-dk" data-i="moon"></i><i class="i-lt" data-i="sun"></i></button>
+      <a href="#agendar" class="b gold hd-cta" data-a="book">Agendar</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero" aria-labelledby="ht">
+    <div class="hero-bg" id="hbg" aria-hidden="true"></div>
+    <div class="w hero-in">
+      <div class="hero-c" data-dyn>
+        <p class="pill" id="hk"><i data-i="cal" data-s="15"></i><span></span></p>
+        <h1 id="ht" class="h1"></h1>
+        <p id="hx" class="lead"></p>
+        <div class="cta">
+          <a href="#agendar" class="b gold lg" data-a="book">Agendar agora<i data-i="arrow" data-s="18"></i></a>
+          <a id="hw" href="#" target="_blank" rel="noopener" class="b ghost lg"><i data-i="wa" data-s="18"></i>WhatsApp</a>
+        </div>
+        <p class="trust" id="hb"></p>
+      </div>
+      <aside class="qk" id="qk" aria-labelledby="qk-t">
+        <div class="qk-sk" aria-hidden="true"><i class="sk sk-l"></i><i class="sk sk-t"></i><i class="sk sk-b"></i><i class="sk sk-b"></i><i class="sk sk-b"></i></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="servicos" class="sec" aria-labelledby="sv-t">
+    <div class="w">
+      <div class="sec-h">
+        <p class="kick">Serviços</p>
+        <h2 id="sv-t" class="h2">Nossos serviços</h2>
+        <p class="tm sec-s">Duração e valor claros antes de escolher. Toque em um serviço para ver os horários livres.</p>
+      </div>
+      <div id="svcs" class="sg">
+        <div class="sc ske" aria-hidden="true"><div class="sc-i sk"></div><div class="sc-b"><i class="sk sk-t"></i><i class="sk sk-l"></i><i class="sk sk-l s"></i></div></div>
+        <div class="sc ske" aria-hidden="true"><div class="sc-i sk"></div><div class="sc-b"><i class="sk sk-t"></i><i class="sk sk-l"></i><i class="sk sk-l s"></i></div></div>
+        <div class="sc ske" aria-hidden="true"><div class="sc-i sk"></div><div class="sc-b"><i class="sk sk-t"></i><i class="sk sk-l"></i><i class="sk sk-l s"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="como" class="sec band" aria-labelledby="hw-t">
+    <div class="w">
+      <div class="sec-h">
+        <p class="kick">Como funciona</p>
+        <h2 id="hw-t" class="h2">Agendado em três passos</h2>
+      </div>
+      <ol class="steps">
+        <li><span class="num">01</span><h3 class="h3">Escolha o serviço</h3><p class="tm">Veja a duração e o valor de cada atendimento antes de decidir.</p></li>
+        <li><span class="num">02</span><h3 class="h3">Escolha data e horário</h3><p class="tm">Aparecem só os horários realmente livres, atualizados na hora.</p></li>
+        <li><span class="num">03</span><h3 class="h3">Confirme no WhatsApp</h3><p class="tm">A mensagem já vai pronta com o resumo. É só tocar em enviar.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="horarios" class="sec" aria-labelledby="hr-t">
+    <div class="w hr">
+      <div class="hr-c">
+        <p class="kick">Horários</p>
+        <h2 id="hr-t" class="h2">Quando atendemos</h2>
+        <div id="hst" class="hst" data-dyn></div>
+      </div>
+      <div id="htab" data-dyn></div>
+    </div>
+  </section>
+
+  <section id="depoimentos" class="sec band hid" aria-labelledby="dp-t">
+    <div class="w">
+      <div class="sec-h">
+        <p class="kick">Depoimentos</p>
+        <h2 id="dp-t" class="h2">Quem já foi atendido</h2>
+      </div>
+      <div id="dps" class="dps"></div>
+    </div>
+  </section>
+
+  <section id="sobre" class="sec" aria-labelledby="ab-t">
+    <div class="w ab">
+      <div class="ab-c">
+        <p class="kick">Sobre</p>
+        <h2 id="ab-t" class="h2" data-dyn></h2>
+        <p id="abx" class="ab-x" data-dyn></p>
+      </div>
+      <div id="contato" class="ct" data-dyn></div>
+    </div>
+  </section>
+</main>
+
+<footer id="ft" class="ft" data-dyn></footer>
+
+<div id="mcta" class="mcta" aria-hidden="true">
+  <a href="#agendar" class="b gold grow" data-a="book" tabindex="-1">Agendar horário</a>
+  <a id="mw" href="#" target="_blank" rel="noopener" class="q mw" aria-label="Falar no WhatsApp" tabindex="-1"><i data-i="wa"></i></a>
+</div>
+
+<!-- Wizard de agendamento (montado por js/wizard.js) -->
+<div id="wz" class="wz hid">
+  <div class="wz-d" role="dialog" aria-modal="true" aria-labelledby="wz-t" tabindex="-1">
+    <header class="wz-h">
+      <button class="q wz-bk" data-a="wback" aria-label="Voltar"><i data-i="prev" data-s="18"></i></button>
+      <div class="wz-hc">
+        <p class="kick tm" id="wz-k"></p>
+        <h2 id="wz-t" class="h3 serif"></h2>
+      </div>
+      <button class="q" data-a="wclose" aria-label="Fechar agendamento"><i data-i="x" data-s="18"></i></button>
+    </header>
+    <ol id="wz-st" class="wz-st" aria-label="Etapas do agendamento"></ol>
+    <div id="wz-b" class="wz-b"></div>
+    <footer id="wz-f" class="wz-f"></footer>
+  </div>
+</div>
+
+<div id="lg" class="md hid">
+  <div role="dialog" aria-modal="true" aria-labelledby="lg-t" tabindex="-1">
+    <h2 id="lg-t" class="h2">Acesso restrito</h2>
+    <p class="sm tm" id="lg-x">Área exclusiva da administração.</p>
+    <label class="lb">E-mail<input id="em" type="email" class="in" autocomplete="username" inputmode="email"></label>
+    <label class="lb">Senha<input id="pw" type="password" class="in" autocomplete="current-password"></label>
+    <p id="pe" class="err hid" role="alert"></p>
+    <div class="row"><button class="b ghost grow" data-a="lclose">Cancelar</button><button class="b gold grow" data-a="login">Entrar</button></div>
+  </div>
+</div>
+
+<div id="cf" class="md hid"></div>
+<div id="adm" class="adm hid" role="dialog" aria-modal="true" aria-label="Painel administrativo" tabindex="-1"></div>
+<div id="ts" class="ts" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js" defer></script>
+<script src="js/slots.js?v=1" defer></script>
+<script src="js/config.js?v=1" defer></script>
+<script src="js/storage.js?v=1" defer></script>
+<script src="js/images.js?v=1" defer></script>
+<script src="js/auth.js?v=1" defer></script>
+<script src="js/site.js?v=1" defer></script>
+<script src="js/wizard.js?v=1" defer></script>
+<script src="js/app.js?v=1" defer></script>
+</body>
+</html>

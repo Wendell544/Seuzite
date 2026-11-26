@@ -96,6 +96,7 @@ const dRel = (d) => {
 /* Texto com *destaque* → <em>destaque</em> (já escapado). */
 const hl = (s) => esc(s).replace(/\*([^*]+)\*/g, '<em>$1</em>');
 const plural = (n, a, b) => n + ' ' + (n === 1 ? a : b);
+const cap = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
 
 /* ---------- Telefone: (83) 99999-9999 ---------- */
 const phoneDigits = (v) => {

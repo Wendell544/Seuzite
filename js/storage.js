@@ -222,7 +222,7 @@ const Demo = (() => {
       { id: 1, name: 'Ana Ribeiro', avatar: null, phone: '', services: [], active: true, sort_order: 0 },
       { id: 2, name: 'Carlos Lima', avatar: null, phone: '', services: [1, 2], active: true, sort_order: 1 }
     ];
-    const d = { v: 1, services, hours, blocked, pros, settings: { ...SET0 }, bookings: [], seq: 1 };
+    const d = { v: 1, services, hours, blocked, pros, settings: { ...SET0, addr: 'Rua das Flores, 120 — Centro' }, bookings: [], seq: 1 };
     // Agendamentos de exemplo em horários realmente livres.
     let r = 7;
     const rnd = (n) => ((r = (r * 9301 + 49297) % 233280), Math.floor((r / 233280) * n));
